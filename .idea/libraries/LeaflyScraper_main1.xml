@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="LeaflyScraper.main1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/LeaflyScraper.main.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
