@@ -39,6 +39,9 @@ public class Rip extends Command {
         String[] args = e.getArgs().split(" ");
         Color color = Color.BLUE;
         color = new EmbedWrapper().GetGuildEmbedColor(guild);
+        if (args == null) {
+            textChannel.sendMessage("Use add/remove");
+        }
         if (args.length > 2) {
             MessageEmbed embed = new EmbedWrapper().EmbedMessage("Rip Counter", null, null, color, "Use add/remove to alter the amounts", null, null, e.getSelfUser().getAvatarUrl(), null);
             textChannel.sendMessageEmbeds(embed).queue();

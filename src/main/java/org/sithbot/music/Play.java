@@ -12,6 +12,8 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import org.simpleyaml.configuration.file.YamlFile;
+import org.sithbot.config.ConfigManager;
 import org.sithbot.utils.EmbedWrapper;
 import org.sithbot.utils.MusicPlayer.PlayerManager;
 import org.sithbot.utils.MusicPlayer.Thumbnail;
@@ -39,7 +41,8 @@ public class Play extends Command {
         boolean selfState = Objects.requireNonNull(selfMember.getVoiceState()).inAudioChannel();
         boolean isDeaf = member.getVoiceState().isDeafened();
         String args = e.getArgs();
-        String token = "AIzaSyAJ61NIcHIqqxGNTSCpRuGEA04MJNipHLw";
+        YamlFile botConfig = new ConfigManager().accessConfig();
+        String token = botConfig.getString("Global.Youtube-Token");
         JacksonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
         if (!state) {
             textChannel.sendMessageEmbeds(new EmbedWrapper().EmbedMessage(guild.getJDA().getSelfUser().getName(), null, null, new EmbedWrapper().GetGuildEmbedColor(guild), "Join the voice channel first!", null, null, guild.getJDA().getSelfUser().getEffectiveAvatarUrl(), null)).queue();

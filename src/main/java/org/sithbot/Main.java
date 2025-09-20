@@ -18,7 +18,7 @@ import org.sithbot.toke.Tokes;
 
 public class Main extends ListenerAdapter {
     private static JDA jda;
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         CommandClientBuilder clientBuilder = new CommandClientBuilder();
 
@@ -48,7 +48,8 @@ public class Main extends ListenerAdapter {
                 new Joints(),
                 new Rip(),
                 new Tokes(),
-                new TokeCard()
+                new TokeCard(),
+                new Volume()
         );
 
         new ConfigManager().setConfig();
