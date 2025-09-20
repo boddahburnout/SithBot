@@ -26,6 +26,8 @@ public class Main extends ListenerAdapter {
 
         clientBuilder.setOwnerId("292484423658766346");
 
+        clientBuilder.setActivity(Activity.playing("Smoking hella dank at the Deathstar"));
+
         clientBuilder.addCommands(
                 new Leafly(),
                 new Ping(),
@@ -59,7 +61,6 @@ public class Main extends ListenerAdapter {
 
         jda = JDABuilder.createDefault(token)
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
-                .setActivity(Activity.playing("Smoking hella dank at the Deathstar"))
                 .addEventListeners(
                         clientBuilder.build(),
                         new Events()

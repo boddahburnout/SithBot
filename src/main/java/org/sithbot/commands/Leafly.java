@@ -3,10 +3,8 @@ package org.sithbot.commands;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import darth.leaflyscrape.DataFetch;
-import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
 import org.json.simple.JSONObject;
-import org.jsoup.HttpStatusException;
 import org.sithbot.utils.EmbedWrapper;
 import org.sithbot.utils.StringUtils;
 
@@ -37,17 +35,12 @@ public class Leafly extends Command {
         MessageChannel channel = event.getEvent().getGuildChannel();
         String message = event.getArgs();
         DataFetch dataFetch = new DataFetch();
-        //LeaflySearch leaflyApi = new LeaflySearch();
         if (message.length() == 0) {
             channel.sendMessage("Please provide a strain").queue();
             return;
         }
         Color color = Color.BLUE;
-        try {
-            color = new EmbedWrapper().GetGuildEmbedColor(event.getGuild());
-        } catch (IllegalStateException e) {
-
-        }
+        color = new EmbedWrapper().GetGuildEmbedColor(event.getGuild());
         try {
             JSONObject strain = dataFetch.fetchData(message);
             //JSONObject strain = leaflyApi.fechLeafly(message);

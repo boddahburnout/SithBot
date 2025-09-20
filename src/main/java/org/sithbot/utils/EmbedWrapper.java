@@ -26,19 +26,14 @@ public class EmbedWrapper {
     }
 
     public Color GetGuildEmbedColor(Guild guild) {
-        YamlFile botConfig = null;
-        try {
-            botConfig = new ConfigManager().accessConfig();
-            String RGB = botConfig.getString("Settings.Guilds."+guild.getId()+".Color");
-            if (!(RGB == null)) {
-                Color embedcolor = ColorFactory.valueOf(RGB);
-                return embedcolor;
-            } else {
-                Color embedcolor = new Color(50, 86, 168);
-                return embedcolor;
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        YamlFile botConfig = new ConfigManager().accessConfig();
+        String RGB = botConfig.getString("Settings.Guilds." + guild.getId() + ".Color");
+        if (!(RGB == null)) {
+            Color embedcolor = ColorFactory.valueOf(RGB);
+            return embedcolor;
+        } else {
+            Color embedcolor = new Color(50, 86, 168);
+            return embedcolor;
         }
     }
 }

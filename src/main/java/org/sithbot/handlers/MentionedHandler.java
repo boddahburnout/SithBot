@@ -3,11 +3,6 @@ package org.sithbot.handlers;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
-import net.dv8tion.jda.api.entities.channel.unions.MessageChannelUnion;
-import org.simpleyaml.configuration.file.YamlFile;
-import org.sithbot.config.ConfigManager;
-
-import java.io.IOException;
 
 public class MentionedHandler {
     public void sendprefix(Guild guild, Message message) {

@@ -5,8 +5,6 @@ import com.jagrosh.jdautilities.command.CommandEvent;
 import com.jagrosh.jdautilities.doc.standard.CommandInfo;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
-import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
-import net.dv8tion.jda.api.requests.restaction.InviteAction;
 import org.sithbot.utils.EmbedWrapper;
 import org.sithbot.utils.StringUtils;
 
@@ -45,28 +43,11 @@ public class Guilds extends Command {
         int servers = 0;
         for (Guild guilds : jda.getGuilds()) {
             id.add(guilds.getName());
-            if (guilds.getName().equals("OmaHoes")) {
-                System.out.println(guilds.getOwner());
-                for (Member m : guilds.getMembers()) {
-                    System.out.println(m.getEffectiveName());
-                }
-                //TextChannel channel = guilds.getTextChannels().get(1);
-                //InviteAction inviteAction = channel.createInvite();
-                //Invite invite = inviteAction.complete();
-                //System.out.println(invite.getUrl());
-                for (Role role : guilds.getRoles()) {
-                    //guilds.addRoleToMember(UserSnowflake.fromId("292484423658766346"), guilds.getRoles().get(3));
-                }
-            }
             servers = servers + 1;
         }
         String msg = new StringUtils().ListToString(id);
         Color color = Color.BLUE;
-        try {
-            color = new EmbedWrapper().GetGuildEmbedColor(event.getGuild());
-        } catch (IllegalStateException e) {
-
-        }
+        color = new EmbedWrapper().GetGuildEmbedColor(event.getGuild());
         MessageEmbed embed = new EmbedWrapper().EmbedMessage("I'm serving users in " + servers + " guilds", "Bartender Bot", null, color, msg, null, null, null, null);
         message.getChannel().sendMessageEmbeds(embed).queue();
     }

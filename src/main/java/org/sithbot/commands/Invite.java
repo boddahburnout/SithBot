@@ -32,11 +32,7 @@ public class Invite extends Command {
         MessageChannel channel = event.getChannel();
 
         Color color = Color.BLUE;
-            try {
-                color = new EmbedWrapper().GetGuildEmbedColor(event.getGuild());
-            } catch (IllegalStateException e) {
-
-            }
+        color = new EmbedWrapper().GetGuildEmbedColor(event.getGuild());
         channel.sendMessageEmbeds(new EmbedWrapper().EmbedMessage("Invite Link", jda.getSelfUser().getName(), null, color, "You can invite me with \n"+jda.getInviteUrl(), null, null, jda.getSelfUser().getEffectiveAvatarUrl(), null)).queue();
     }
 }

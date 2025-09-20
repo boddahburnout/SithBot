@@ -4,13 +4,11 @@ import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
-import org.simpleyaml.exceptions.InvalidConfigurationException;
 import org.sithbot.category.BotCategories;
 import org.sithbot.utils.EmbedWrapper;
 
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.text.NumberFormat;
 
@@ -56,11 +54,7 @@ public class Status extends Command {
                 (double) root.getUsableSpace() / 1073741824));
 
         Color color = Color.BLUE;
-        try {
-            color = new EmbedWrapper().GetGuildEmbedColor(event.getGuild());
-        } catch (IllegalStateException e) {
-
-        }
+        color = new EmbedWrapper().GetGuildEmbedColor(event.getGuild());
         MessageEmbed embed = new EmbedWrapper().EmbedMessage("Performance",null ,null, color, sb.toString(), null, null, channel.getJDA().getSelfUser().getEffectiveAvatarUrl(), null);
         channel.sendMessageEmbeds(embed).queue();
     }

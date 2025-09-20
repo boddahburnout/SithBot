@@ -18,7 +18,6 @@ public class GuildMemberJoinHandler {
         YamlFile Config = new ConfigManager().accessConfig();
         if (Config.isSet(guild.getId() + "." + "Welcome-Channel")) {
             TextChannel channel = guild.getTextChannelById(Config.getString(guild.getId() + "." + "Welcome-Channel"));
-            //String[] drink = new RandomPhrase().getRandomJoinPhrase(guild, member.getUser());
             Color color = Color.BLUE;
             color = new EmbedWrapper().GetGuildEmbedColor(guild);
             Role role = guild.getRoleById(Config.getString(guild.getId() + ".Welcome-Mention-Role"));

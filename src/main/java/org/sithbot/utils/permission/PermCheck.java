@@ -12,7 +12,7 @@ import java.util.List;
 
 public class PermCheck {
     boolean perms = false;
-    public boolean CheckGuildRole(Guild guild, Member member) throws InvalidConfigurationException, IOException {
+    public boolean CheckGuildRole(Guild guild, Member member)  {
         List<Role> roles = member.getRoles();
         YamlFile botConfig = new ConfigManager().accessConfig();
         if (botConfig.getString("Perms.Global").contains(member.getUser().getId()) || member.getUser().getId().equals(guild.getOwnerId())) {

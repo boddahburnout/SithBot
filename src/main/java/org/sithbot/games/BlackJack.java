@@ -118,7 +118,7 @@ public class BlackJack {
 
                         MessageEmbed bjtable = new EmbedWrapper().EmbedMessage("BlackJack Table",
                                 event.getMember().getEffectiveName() + "'s table'",
-                        null, Color.BLUE, bjmessage, null, null, null, null);
+                                null, Color.BLUE, bjmessage, null, null, null, null);
 
                         message.editMessageEmbeds(bjtable).queue(msg -> {
                             msg.clearReactions().queue(v -> {
@@ -170,7 +170,7 @@ public class BlackJack {
 
                         MessageEmbed lose = new EmbedWrapper().EmbedMessage("BlackJack Table",
                                 event.getMember().getEffectiveName() + "'s table'",
-                        null, Color.BLUE, losemsg, null, null, null, null);
+                                null, Color.BLUE, losemsg, null, null, null, null);
 
                         message.editMessageEmbeds(lose).queue(msg -> {
                             msg.clearReactions().queue(v -> msg.addReaction(Emoji.fromUnicode(EMOJI_PLAY)).queue());
@@ -188,7 +188,7 @@ public class BlackJack {
 
                         MessageEmbed winmsg = new EmbedWrapper().EmbedMessage("BlackJack Table",
                                 event.getMember().getEffectiveName() + "'s table'",
-                        null, Color.BLUE, embmsg, null, null, null, null);
+                                null, Color.BLUE, embmsg, null, null, null, null);
 
                         message.editMessageEmbeds(winmsg).queue(msg -> {
                             msg.clearReactions().queue(v -> msg.addReaction(Emoji.fromUnicode(EMOJI_PLAY)).queue());
@@ -253,7 +253,7 @@ public class BlackJack {
 
                     MessageEmbed winmsg = new EmbedWrapper().EmbedMessage("BlackJack Table",
                             event.getMember().getEffectiveName() + "'s table'",
-                    null, Color.BLUE, embmsg, null, null, null, null);
+                            null, Color.BLUE, embmsg, null, null, null, null);
 
                     message.editMessageEmbeds(winmsg).queue(msg -> {
                         msg.clearReactions().queue(v -> msg.addReaction(Emoji.fromUnicode(EMOJI_PLAY)).queue());
@@ -293,7 +293,7 @@ public class BlackJack {
 
                         MessageEmbed lose = new EmbedWrapper().EmbedMessage("BlackJack Table",
                                 event.getMember().getEffectiveName() + "'s table'",
-                        null, Color.BLUE, losemsg, null, null, null, null);
+                                null, Color.BLUE, losemsg, null, null, null, null);
 
                         message.editMessageEmbeds(lose).queue(msg -> {
                             msg.clearReactions().queue(v -> msg.addReaction(Emoji.fromUnicode(EMOJI_PLAY)).queue());
@@ -308,7 +308,7 @@ public class BlackJack {
 
                         MessageEmbed winmsg = new EmbedWrapper().EmbedMessage("BlackJack Table",
                                 event.getMember().getEffectiveName() + "'s table'",
-                        null, Color.BLUE, embmsg, null, null, null, null);
+                                null, Color.BLUE, embmsg, null, null, null, null);
 
                         message.editMessageEmbeds(winmsg).queue(msg -> {
                             msg.clearReactions().queue(v -> msg.addReaction(Emoji.fromUnicode(EMOJI_PLAY)).queue());
@@ -326,9 +326,8 @@ public class BlackJack {
 
                 });
             }
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }
